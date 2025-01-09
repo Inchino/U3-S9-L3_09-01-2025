@@ -33,7 +33,13 @@ class SingleBook extends Component {
     return (
       <Row className="justify-content-evenly">
         <Col xs={12} md={3} key={this.props.book.asin}>
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "18rem" }} onClick={(e)=>
+            this.setState({
+                state: {
+                    selected: e ? false : true,
+                }
+            })
+          }>
             <Card.Img variant="top" src={this.props.book.img} />
             <Card.Body>
               <Card.Title>{this.props.book.title}</Card.Title>
