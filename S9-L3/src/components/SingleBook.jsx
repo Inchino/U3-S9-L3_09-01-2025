@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Card, Col, Row } from 'react-bootstrap';
+import { Component } from "react";
+import { Card, Col, Row } from "react-bootstrap";
 
-const SingleBook = (props) => {
+{
+  /*const SingleBook = (props) => {
   return (
     <Row className="justify-content-evenly" >
           <Col xs={12} md={3} key={props.book.asin}>
@@ -18,6 +20,33 @@ const SingleBook = (props) => {
           </Col>
     </Row>
   )
+}
+
+export default SingleBook;*/
+}
+
+class SingleBook extends Component {
+    state={
+        selected: false,
+    };
+  render() {
+    return (
+      <Row className="justify-content-evenly">
+        <Col xs={12} md={3} key={this.props.book.asin}>
+          <Card style={{ width: "18rem" }}>
+            <Card.Img variant="top" src={this.props.book.img} />
+            <Card.Body>
+              <Card.Title>{this.props.book.title}</Card.Title>
+              <Card.Text>
+                <p>{this.props.book.category}</p>
+                <p>{this.props.book.price}€</p>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    );
+  }
 }
 
 export default SingleBook;
